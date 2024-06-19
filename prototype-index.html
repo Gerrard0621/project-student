@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <title>성적관리 시스템</title>
+  <script src="./javaScript/Student.js" defer></script>
+  <script src="./javaScript/StudentService.js" defer></script>
+  <script src="./javaScript/app.js"defer></script>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    div {
+      margin-top: 20px;
+
+    }
+
+    #addStudentForm {
+      padding-left: 200px;
+    }
+
+    #fieldset input {
+      height: 40px;
+      width: 200px;
+      background-color: white;
+      border: 2px solid green;
+      text-align: center;
+    }
+    #loginbutton{
+      height: 40px;
+      width: 60px;
+    }
+    .flex {
+      display: flex;
+    }
+
+    .btn-outline-success {
+      width: 3em;
+    }
+
+    #select {
+      height: fit-content;
+      width: fit-content;
+      border: 2px solid green;
+    }
+   
+    .form-control{
+      display: inline-block;
+      width: 90%;
+    }
+    #search{
+      margin-left: 786px;
+      height: 30px;
+    }
+    #aa{
+      width: 60px;
+    }
+    #stateButton{
+      border: 2px solid green;
+    }
+
+    
+   
+    
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>이젠 초등학교 성적 관리</h1>
+    <div id="fieldset">
+      <input type="text" id="ssn" placeholder="학번" required>
+      <input type="text" id="name" placeholder="이름" required>
+      <input type="text" id="korean" placeholder="국어점수" required>
+      <input type="text" id="english" placeholder="영어점수" required>
+      <input type="text" id="math" placeholder="수학점수" required>
+      <button type="submit" id="loginbutton" class="btn btn-outline-success"></i>등록</button>
+      <button type="submit" id="loginbutton" class="btn btn-outline-success">삭제</button>
+    </div>
+
+    <div class="btn-group" >
+      <button type="button" class="btn btn-outline-secondary"id="stateButton">현재 정렬 조건==></button>
+      <select class="form-select" aria-label="Default select example" id="select">
+        <option selected>정렬</option>
+        <option value="1">학번</option>
+        <option value="2">이름</option>
+        <option value="3">총점</option>
+      </select>
+
+    </div>
+
+    <div class="btn-group">
+      
+    </div>
+    <div class="btn-group" id="search">
+    <input type="search" placeholder="공백시 전체검색"   aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" id="aa">검색</button>
+      </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">학번</th>
+          <th scope="col">이름</th>
+          <th scope="col">국어</th>
+          <th scope="col">영어</th>
+          <th scope="col">수학</th>
+          <th scope="col">총점</th>
+          <th scope="col">평균</th>
+          <th scope="col">등수</th>
+
+        </tr>
+      </thead>
+      <tbody id="studentList">
+        <tr>
+          <th scope="row">1</th>
+          <td>Jacob</td>
+          <td>80</td>
+          <td>70</td>
+          <td>60</td>
+          <td>50</td>
+          <td>40</td>
+          <td>2</td>
+
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>80</td>
+          <td>70</td>
+          <td>60</td>
+          <td>50</td>
+          <td>40</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Thornton</td>
+          <td>30</td>
+          <td>40</td>
+          <td>60</td>
+          <td>70</td>
+          <td>80</td>
+          <td>1</td>
+        </tr>
+
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row"></th>
+          <th colspan="4">전체 평균</th>
+          <td>300</td>
+          <td>100</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination" id="aa">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+
+        </li>
+      </ul>
+
+
+
+
+  </div>
+
+</body>
+
+</html>
